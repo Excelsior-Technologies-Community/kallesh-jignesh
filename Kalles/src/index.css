@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --breakpoint-smm: 360px;
+  --breakpoint-mdm: 414px;
+  --breakpoint-lgm: 480px;
+  --breakpoint-tab: 768px;
+  --breakpoint-lap: 1024px;
+  --breakpoint-llap: 1280px;
+  --breakpoint-desk: 1440px;
+}
+
+html,
+body {
+  overflow-x: clip;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  @apply bg-slate-50 dark:bg-slate-950;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-800/20 shadow-xl;
+  }
+
+  .glass-sidebar {
+    @apply bg-slate-900/80 dark:bg-slate-950/80 backdrop-blur-xl border-r border-white/10 dark:border-slate-800/20;
+  }
+
+  .glass-card {
+    @apply bg-white/30 dark:bg-slate-900/40 backdrop-blur-xl border border-white/40 dark:border-slate-800/40 shadow-xl hover:shadow-2xl transition-all duration-500;
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  }
+
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+  }
+
+  /* Custom Scrollbar for Sidebar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #56cfe1;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+}
